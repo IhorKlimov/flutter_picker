@@ -216,9 +216,15 @@ class PickerWidgetState<T> extends State<_PickerWidget> {
     picker.adapter.doShow();
 
     if (scrollController.length == 0) {
-      for (int i = 0; i < picker._maxLevel; i++)
-        scrollController.add(
-            new FixedExtentScrollController(initialItem: picker.selecteds[i]));
+      for (int i = 0; i < picker._maxLevel; i++) {
+        if (i == 2) {
+          scrollController.add(
+              new FixedExtentScrollController(initialItem: 104));
+        }else {
+          scrollController.add(
+              new FixedExtentScrollController(initialItem: picker.selecteds[i]));
+        }
+      }
     }
   }
 
